@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste article{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <h1>Ma page de la liste des articles</h1>
+
+        {#    pour afficher une varibale {{ nom_var }}#}
+        {% if articles %}
+            <div class="row">
+                {% for a in articles %}
+
+                    <div class="card border-success mb-3  ml-1" style="max-width: 20rem;">
+                        <div class="card-header">{{ a.title }}</div>
+
+                        <div class="card-body">
+                            <p class="card-text">{{ a.content }}</p>
+                            <button class="btn btn-secondary">Detail</button>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+        {% else %}
+            il n'y pas article
+        {% endif %}
+
+    </div>
+{% endblock %}
+
